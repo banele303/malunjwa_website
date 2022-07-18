@@ -1,66 +1,99 @@
-import Head from "next/head";
-import { useState, useEffect } from "react";
-import UserList from "../src/components/UserList";
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import Image from "next/image";
+import classes from "../styles/Home.module.css";
+import {Button, Typography, Grid } from "@mui/material";
+import Navbar from "../src/components/Navbar";
+import Vision from "../src/components/Vision";
+import Footer from "../src/components/Footer";
+import Link from "next/link"
+import services2 from "../public/serviceTwo.jpg";
+import Welcome from "../src/components/Welcome";
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import Provider from "../src/components/Provider";
+import Head from "next/head"
+
 
 export default function Home() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-      fetch("https://reqres.in/api/users?page=1")
-        .then((data) => data.json())
-        .then((users) => setUsers(users.data));
-  }, []);
-
-  const handleClick = () => {
-    fetch("https://reqres.in/api/users?page=2")
-    .then((data) => data.json())
-    .then((users) => setUsers(users.data));
-  }
-
+  
   return (
-    <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <button onClick={handleClick}>Hit API</button>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <Head>
-        <title>User Management</title>
-        <meta name="description" content="User CRUD app" />
+    <section>
+       <Head>
+        <title>Malunjwa Construction</title>
+        <meta
+          name='Your best Constraction company'
+          content='malunjwa contraction company'
+        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>User Management tool</h1>
-        {/* <h3>Navigate to:</h3> */}
-        <p>Users List</p>
-        <UserList users={users} />
-      </main>
+      <Navbar />
+      <div className={classes.main_service}>
+        <div className={classes.image_container}>
+          <Image src={services2} layout="fill" className={classes.image} />
+        </div>
+        <div className={classes.content}>
+          <Typography
+            variant="h5"
+            component="h5"
+            sx={{
+              display: "flex",
+              justifyContent: "flexStart",
+              width: "100%",
+              padding: ".9rem .4rem",
+              color: "#D79016",
+              fontSize: "43px",
+              fontWeight: "bold",
+           
+             
+            }}
+          >
+            Construction Services
+          </Typography>
+          <Typography
+            variant="p5"
+            component="p5"
+            sx={{
+              display: "flex",
+              justifyContent: "flexStart",
+              maxWidth: "590px",
+              padding: ".8rem .4rem",
+              color: "#D79016",
+              fontSize: "20px",
+              fontWeight: "bold",
+            }}
+          >
+            Malunjwa Building Construction is the best when it comes to latest
+            tending building and renovation solutions and we offer these
+            services to Large businesses, small businesses, and individuals.
+          </Typography>
+          <Button variant="contained" endIcon={<ArrowRightAltIcon sx={{
+            color:"#0D2240",
+            width:"3rem",
+            transition:".6s ease",
+            "&:hover":{
+              backgroundColor:" #0D2240",
+            color:"#D79016",
+            }
+          
 
-      <footer>
-        <span>Placeholder for footer</span>
-      </footer>
-    </div>
+          }}/>} sx={{
+            backgroundColor:"#D79016",
+            color:"#0D2240",
+            padding:"16px 29px",
+            fontSize:"18px",
+            marginTop:"1rem",
+            transition:".6s ease",
+            "&:hover":{
+              backgroundColor:" #0D2240",
+            color:"#D79016",
+            }
+          }}><Link href="/contact" >Contact Us Now</Link> </Button>
+        </div>
+      </div>
+       
+      <Welcome />
+      <Vision/>
+
+      <Provider/>
+     <Footer/>
+    </section>
   );
 }
