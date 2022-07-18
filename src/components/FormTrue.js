@@ -3,7 +3,7 @@ import { Grid, Button, TextField, Typography } from "@mui/material";
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import logo from "../../public/Imagelo.png";
+import logo from "../../public/imagelo.png";
 import SendIcon from '@mui/icons-material/Send';
 import EmailIcon from "@mui/icons-material/Email";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
