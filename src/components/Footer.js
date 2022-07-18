@@ -11,7 +11,7 @@ import {
 import React from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import classes from "../../styles/Footer.module.css";
-import logo from "../../public/Imagelo.png";
+import logo from "../../public/imagelo.png";
 import Image from "next/image";
 import EmailIcon from "@mui/icons-material/Email";
 import EditLocationIcon from "@mui/icons-material/EditLocation";
