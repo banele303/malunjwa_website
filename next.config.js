@@ -3,4 +3,5 @@ module.exports = {
   images: {
     domains: ['reqres.in'],
   },
+  ignoreDuringBuilds: true,
 }
